@@ -23,21 +23,22 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    String apiCall = "https://run.mocky.io/v3/a903d1b6-1437-4417-bc21-1b5e1c571d8f";
+    String apiCall = "https://run.mocky.io/v3/4eb0fa64-2cd5-4cb3-a5ed-35b7c46cf657";
 
     List<BookModel> bookList;
     RecyclerView booksView;
+    DBHelper myDb;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        DataGetter dataGetter = new DataGetter();
         bookList = new ArrayList<>();
         booksView = findViewById(R.id.booksView);
-
+        DataGetter dataGetter = new DataGetter();
         dataGetter.execute();
+        myDb = new DBHelper(this);
     }
 
     public class DataGetter extends AsyncTask<String, String, String> {
