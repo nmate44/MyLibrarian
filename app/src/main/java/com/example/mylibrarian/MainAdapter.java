@@ -5,6 +5,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -38,7 +39,8 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
         holder.title.setText(userBookList.get(position).getTitle());
         holder.author.setText(userBookList.get(position).getAuthor());
         // Later it's gonna be changed to a widget so the toString is temporary.
-        holder.advancement.setText((userBookList.get(position).getAdvancement()).toString());
+        holder.advancement.setText("Progress: " + String.valueOf(userBookList.get(position).getAdvancement()) + " %");
+        holder.progressBar.setProgress((int)userBookList.get(position).getAdvancement());
         Glide.with(mainContext).load(userBookList.get(position).getImg()).into(holder.img);
     }
 
@@ -51,6 +53,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
         TextView title;
         TextView author;
         TextView advancement;
+        ProgressBar progressBar;
         ImageView img;
 
         public ViewHolder(@NonNull View itemView) {
@@ -58,6 +61,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
             this.title = itemView.findViewById(R.id.bookTitle);
             this.author = itemView.findViewById(R.id.bookAuthor);
             this.advancement = itemView.findViewById(R.id.bookAdvancement);
+            this.progressBar = itemView.findViewById(R.id.bookProgressBar);
             this.img = itemView.findViewById(R.id.bookImg);
         }
     }

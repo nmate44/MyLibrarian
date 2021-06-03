@@ -7,13 +7,13 @@ public class BookModel {
     private String genre;
     private String description;
     private String isbn;
-    private Float advancement;
+    private float advancement;
     private String img;
 
     public BookModel() {
     }
 
-    public BookModel(int id, String title, String author, String description, String genre, String isbn, Float advancement, String img) {
+    public BookModel(int id, String title, String author, String description, String genre, String isbn, float advancement, String img) {
         this.id = id;
         this.title = title;
         this.author = author;
@@ -72,7 +72,7 @@ public class BookModel {
         this.isbn = isbn;
     }
 
-    public Float getAdvancement() {
+    public float getAdvancement() {
         return advancement;
     }
 
