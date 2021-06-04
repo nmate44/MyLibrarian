@@ -1,34 +1,36 @@
 package com.example.mylibrarian;
 
 public class BookModel {
-    private int id;
+    private String id;
     private String title;
     private String author;
+    private String published;
     private String genre;
     private String description;
+    private Integer pages;
     private String isbn;
-    private float advancement;
     private String img;
 
     public BookModel() {
     }
 
-    public BookModel(int id, String title, String author, String description, String genre, String isbn, float advancement, String img) {
+    public BookModel(String id, String title, String author, String published, String genre, String description, String isbn, Integer pages, String img) {
         this.id = id;
         this.title = title;
         this.author = author;
         this.genre = genre;
+        this.published = published;
         this.description = description;
         this.isbn = isbn;
-        this.advancement = advancement;
+        this.pages = pages;
         this.img = img;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -46,6 +48,14 @@ public class BookModel {
 
     public void setAuthor(String author) {
         this.author = author;
+    }
+
+    public String getPublished() {
+        return published;
+    }
+
+    public void setPublished(String published) {
+        this.published = published;
     }
 
     public String getGenre() {
@@ -72,12 +82,12 @@ public class BookModel {
         this.isbn = isbn;
     }
 
-    public float getAdvancement() {
-        return advancement;
+    public Integer getPages() {
+        return pages;
     }
 
-    public void setAdvancement(Float advancement) {
-        this.advancement = advancement;
+    public void setPages(Integer pages) {
+        this.pages = pages;
     }
 
     public String getImg() {

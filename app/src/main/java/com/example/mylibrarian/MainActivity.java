@@ -23,7 +23,7 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
-    String apiCall = "https://run.mocky.io/v3/4eb0fa64-2cd5-4cb3-a5ed-35b7c46cf657";
+    String apiCall = "https://run.mocky.io/v3/f1a63d3b-343a-4ec5-83cb-9304816bb746";
 
     List<BookModel> bookList;
     RecyclerView booksView;
@@ -79,17 +79,18 @@ public class MainActivity extends AppCompatActivity {
         protected void onPostExecute(String s) {
             try {
                 JSONObject jsonObject = new JSONObject(s);
-                JSONArray jsonArray = jsonObject.getJSONArray("userBooks");
+                JSONArray jsonArray = jsonObject.getJSONArray("books");
                 for(int i = 0; i < jsonArray.length(); i++) {
                     JSONObject jsonListElement = jsonArray.getJSONObject(i);
                     BookModel book = new BookModel();
-                    book.setId(jsonListElement.getInt("id"));
+                    book.setId(jsonListElement.getString("id"));
                     book.setTitle(jsonListElement.getString("title"));
                     book.setAuthor(jsonListElement.getString("author"));
+                    book.setPublished(jsonListElement.getString("published"));
                     book.setGenre(jsonListElement.getString("genre"));
                     book.setDescription(jsonListElement.getString("description"));
+                    book.setPages(jsonListElement.getInt("pages"));
                     book.setIsbn(jsonListElement.getString("isbn"));
-                    book.setAdvancement((float)jsonListElement.getDouble("advancement"));
                     book.setImg(jsonListElement.getString("img"));
                     bookList.add(book);
                 }

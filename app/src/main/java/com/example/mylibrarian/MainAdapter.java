@@ -39,8 +39,8 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
         holder.title.setText(userBookList.get(position).getTitle());
         holder.author.setText(userBookList.get(position).getAuthor());
         // Later it's gonna be changed to a widget so the toString is temporary.
-        holder.advancement.setText("Progress: " + String.valueOf(userBookList.get(position).getAdvancement()) + " %");
-        holder.progressBar.setProgress((int)userBookList.get(position).getAdvancement());
+        holder.advancement.setText(userBookList.get(position).getPages().toString());
+        holder.progressBar.setProgress(50);
         Glide.with(mainContext).load(userBookList.get(position).getImg()).into(holder.img);
     }
 
