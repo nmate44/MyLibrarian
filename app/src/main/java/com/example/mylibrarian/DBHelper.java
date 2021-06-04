@@ -72,7 +72,12 @@ public class DBHelper extends SQLiteOpenHelper {
         return true;
     }
 
-    public Cursor findUserBookById(int id) {
+    public Cursor getAllUserBooks() {
+        SQLiteDatabase db = this.getReadableDatabase();
+        return db.rawQuery("SELECT * FROM " + TABLE_BOOK, null);
+    }
+
+    public Cursor getUserBookById(int id) {
         SQLiteDatabase db = this.getReadableDatabase();
         return db.rawQuery("SELECT * FROM " + TABLE_BOOK + " WHERE id=" + id, null);
     }
