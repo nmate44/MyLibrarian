@@ -12,6 +12,7 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentTransaction;
+import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.RecyclerView;
@@ -24,10 +25,12 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
 
     private Context mainContext;
     private List<BookModel> userBookList;
+    private NavController navController;
 
-    public MainAdapter(Context mainContext, List<BookModel> userBookList) {
+    public MainAdapter(Context mainContext, List<BookModel> userBookList, NavController navController) {
         this.mainContext = mainContext;
         this.userBookList = userBookList;
+        this.navController = navController;
     }
 
     @NonNull
@@ -43,7 +46,6 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.title.setText(userBookList.get(position).getTitle());
         holder.author.setText(userBookList.get(position).getAuthor());
-        // Later it's gonna be changed to a widget so the toString is temporary.
         holder.advancement.setText(userBookList.get(position).getPages().toString());
         holder.progressBar.setProgress(50);
         Glide.with(mainContext).load(userBookList.get(position).getImg()).into(holder.img);
@@ -51,7 +53,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
             @Override
             public void onClick(View v) {
                 holder.detailedTitle.setText(userBookList.get(position).getTitle());
-                //Navigation.createNavigateOnClickListener(R.id.action_bookDetails2_self2);
+                navController.navigate(R.id.action_bookList_to_bookDetails3);
                 System.out.println("*Button " + position + " clicked*");
             }
         });

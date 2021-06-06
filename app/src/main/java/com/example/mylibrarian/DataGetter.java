@@ -3,6 +3,8 @@ package com.example.mylibrarian;
 import android.content.Context;
 import android.os.AsyncTask;
 
+import androidx.navigation.NavController;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -24,11 +26,13 @@ public class DataGetter extends AsyncTask<String, String, String> {
     List<BookModel> bookList;
     Context context;
     RecyclerView recyclerView;
+    NavController navController;
 
-    public DataGetter(List<BookModel> bookList, Context context, RecyclerView recyclerView) {
+    public DataGetter(List<BookModel> bookList, Context context, RecyclerView recyclerView, NavController navController) {
         this.bookList = bookList;
         this.context = context;
         this.recyclerView = recyclerView;
+        this.navController = navController;
     }
 
     @Override
@@ -90,7 +94,7 @@ public class DataGetter extends AsyncTask<String, String, String> {
     }
 
     private void FillBooksView(Context context, List<BookModel> bookList, RecyclerView booksView) {
-        MainAdapter adapter = new MainAdapter(context, bookList);
+        MainAdapter adapter = new MainAdapter(context, bookList, navController);
         booksView.setLayoutManager(new LinearLayoutManager(context));
         booksView.setAdapter(adapter);
     }
