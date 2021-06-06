@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
@@ -54,7 +55,13 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
             public void onClick(View v) {
                 navController.navigate(R.id.action_bookList_to_bookDetails3);
                 BookList.getInstance().setCurrentPos(position);
-                System.out.println("*Button " + position + " clicked*");
+            }
+        });
+        holder.bookAddBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MainActivity.getInstance().myDb.insertUserBook(userBookList.get(position).getId(), 0);
+                Toast.makeText(mainContext, "Book added to Own", Toast.LENGTH_LONG).show();
             }
         });
     }
@@ -71,6 +78,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
         ProgressBar progressBar;
         ImageView img;
         Button bookDetailsBtn;
+        Button bookAddBtn;
 
         public ViewHolder (@NonNull View itemView) {
             super(itemView);
@@ -80,6 +88,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
             this.progressBar = itemView.findViewById(R.id.bookProgressBar);
             this.img = itemView.findViewById(R.id.bookImg);
             this.bookDetailsBtn = itemView.findViewById(R.id.bookDetailsBtn);
+            this.bookAddBtn = itemView.findViewById(R.id.bookAddBtn);
         }
     }
 
