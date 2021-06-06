@@ -52,8 +52,8 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
         holder.bookDetailsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                holder.detailedTitle.setText(userBookList.get(position).getTitle());
                 navController.navigate(R.id.action_bookList_to_bookDetails3);
+                BookList.getInstance().setCurrentPos(position);
                 System.out.println("*Button " + position + " clicked*");
             }
         });
@@ -72,8 +72,6 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
         ImageView img;
         Button bookDetailsBtn;
 
-        TextView detailedTitle;
-
         public ViewHolder (@NonNull View itemView) {
             super(itemView);
             this.title = itemView.findViewById(R.id.detailsTitle);
@@ -82,8 +80,6 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
             this.progressBar = itemView.findViewById(R.id.bookProgressBar);
             this.img = itemView.findViewById(R.id.bookImg);
             this.bookDetailsBtn = itemView.findViewById(R.id.bookDetailsBtn);
-
-            this.detailedTitle = itemView.findViewById(R.id.detailsTitle);
         }
     }
 

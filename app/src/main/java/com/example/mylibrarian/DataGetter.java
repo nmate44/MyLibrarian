@@ -18,21 +18,22 @@ import java.io.InputStreamReader;
 import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.ArrayList;
 import java.util.List;
 
 public class DataGetter extends AsyncTask<String, String, String> {
     private final String apiCall = "https://run.mocky.io/v3/f1a63d3b-343a-4ec5-83cb-9304816bb746";
 
-    List<BookModel> bookList;
+    List<BookModel> bookList = new ArrayList<>();
     Context context;
     RecyclerView recyclerView;
     NavController navController;
+    MainAdapter adapter;
 
-    public DataGetter(List<BookModel> bookList, Context context, RecyclerView recyclerView, NavController navController) {
-        this.bookList = bookList;
+    public DataGetter(Context context, NavController navController) {
         this.context = context;
-        this.recyclerView = recyclerView;
         this.navController = navController;
+        this.adapter = new MainAdapter(context, this.bookList, navController);
     }
 
     @Override
@@ -90,12 +91,19 @@ public class DataGetter extends AsyncTask<String, String, String> {
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        FillBooksView(context, bookList, recyclerView);
+        FillBooksView(context, recyclerView);
     }
 
-    private void FillBooksView(Context context, List<BookModel> bookList, RecyclerView booksView) {
-        MainAdapter adapter = new MainAdapter(context, bookList, navController);
+    private void FillBooksView(Context context, RecyclerView booksView) {
         booksView.setLayoutManager(new LinearLayoutManager(context));
         booksView.setAdapter(adapter);
+    }
+
+    public void setRecyclerView(RecyclerView recyclerView) {
+        this.recyclerView = recyclerView;
+    }
+
+    public List<BookModel> getBookList() {
+        return this.bookList;
     }
 }
