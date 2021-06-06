@@ -8,13 +8,14 @@ public class BookModel {
     private String genre;
     private String description;
     private Integer pages;
+    private Integer pagesRead;
     private String isbn;
     private String img;
 
     public BookModel() {
     }
 
-    public BookModel(String id, String title, String author, String published, String genre, String description, String isbn, Integer pages, String img) {
+    public BookModel(String id, String title, String author, String published, String genre, String description, String isbn, Integer pages, Integer pagesRead, String img) {
         this.id = id;
         this.title = title;
         this.author = author;
@@ -23,6 +24,7 @@ public class BookModel {
         this.description = description;
         this.isbn = isbn;
         this.pages = pages;
+        this.pagesRead = pagesRead;
         this.img = img;
     }
 
@@ -88,6 +90,14 @@ public class BookModel {
 
     public void setPages(Integer pages) {
         this.pages = pages;
+    }
+
+    public Integer getPagesRead() {
+        return pagesRead;
+    }
+
+    public void setPagesRead(Integer pagesRead) {
+        this.pagesRead = pagesRead;
     }
 
     public String getImg() {

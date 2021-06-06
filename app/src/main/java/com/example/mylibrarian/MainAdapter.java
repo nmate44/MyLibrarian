@@ -11,11 +11,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
-import androidx.navigation.fragment.NavHostFragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
@@ -47,8 +43,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         holder.title.setText(userBookList.get(position).getTitle());
         holder.author.setText(userBookList.get(position).getAuthor());
-        holder.advancement.setText(userBookList.get(position).getPages().toString());
-        holder.progressBar.setProgress(50);
+        holder.published.setText(userBookList.get(position).getPublished());
         Glide.with(mainContext).load(userBookList.get(position).getImg()).into(holder.img);
         holder.bookDetailsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -74,8 +69,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
     public static class ViewHolder extends RecyclerView.ViewHolder {
         TextView title;
         TextView author;
-        TextView advancement;
-        ProgressBar progressBar;
+        TextView published;
         ImageView img;
         Button bookDetailsBtn;
         Button bookAddBtn;
@@ -84,8 +78,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
             super(itemView);
             this.title = itemView.findViewById(R.id.detailsTitle);
             this.author = itemView.findViewById(R.id.bookAuthor);
-            this.advancement = itemView.findViewById(R.id.bookAdvancement);
-            this.progressBar = itemView.findViewById(R.id.bookProgressBar);
+            this.published = itemView.findViewById(R.id.bookPublished);
             this.img = itemView.findViewById(R.id.bookImg);
             this.bookDetailsBtn = itemView.findViewById(R.id.bookDetailsBtn);
             this.bookAddBtn = itemView.findViewById(R.id.bookAddBtn);

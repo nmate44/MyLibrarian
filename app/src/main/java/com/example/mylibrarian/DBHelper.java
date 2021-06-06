@@ -6,6 +6,10 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
+import java.util.ArrayList;
+
+import static java.lang.Integer.parseInt;
+
 public class DBHelper extends SQLiteOpenHelper {
 
     public static final String DB_NAME = "mylibrarian.db";
@@ -48,9 +52,19 @@ public class DBHelper extends SQLiteOpenHelper {
         return true;
     }
 
-    public Cursor getAllUserBooks() {
+    public ArrayList<BookModel> getAllUserBooks() {
         SQLiteDatabase db = this.getReadableDatabase();
-        return db.rawQuery("SELECT * FROM " + TABLE_BOOK, null);
+        ArrayList<BookModel> result = new ArrayList<>();
+        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLE_BOOK, null);
+        cursor.moveToFirst();
+        while(cursor.isAfterLast() == false) {
+            BookModel book = new BookModel();
+            book.setId(cursor.getString(cursor.getColumnIndex(BOOK_ID)));
+            book.setPagesRead(cursor.getInt(cursor.getColumnIndex(BOOK_PAGESREAD)));
+            result.add(book);
+            cursor.moveToNext();
+        }
+        return result;
     }
 
     public Cursor getUserBookById(String id) {

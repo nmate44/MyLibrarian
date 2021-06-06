@@ -53,6 +53,13 @@ public class UserBookAdapter extends RecyclerView.Adapter<UserBookAdapter.ViewHo
                 System.out.println("*Button " + position + " clicked*");
             }
         });
+        holder.bookDeleteBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                UserBookList.getInstance().removeFromUserBookList(position);
+                navController.navigate(R.id.action_userBookList_self);
+            }
+        });
     }
 
     @Override
