@@ -51,7 +51,7 @@ public class MainAdapter extends RecyclerView.Adapter<MainAdapter.ViewHolder> {
             @Override
             public void onClick(View v) {
                 holder.detailedTitle.setText(userBookList.get(position).getTitle());
-                Navigation.createNavigateOnClickListener(R.id.action_bookDetails2_self2);
+                //Navigation.createNavigateOnClickListener(R.id.action_bookDetails2_self2);
                 System.out.println("*Button " + position + " clicked*");
             }
         });
