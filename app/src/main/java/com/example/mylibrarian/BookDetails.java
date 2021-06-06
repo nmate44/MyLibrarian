@@ -56,5 +56,12 @@ public class BookDetails extends Fragment {
         detailedPublished.setText(bookList.get(this.bookPosition).getPublished());
         detailedIsbn.setText(bookList.get(this.bookPosition).getIsbn());
         detailedDescription.setText(bookList.get(this.bookPosition).getDescription());
+
+        view.findViewById(R.id.detailsBtnBack).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                NavHostFragment.findNavController(BookDetails.this).navigate(R.id.action_bookDetails3_to_bookList);
+            }
+        });
     }
 }

@@ -39,6 +39,12 @@ public class BookList extends Fragment {
         dataGetter.setRecyclerView(booksView);
         dataGetter.execute();
         this.bookList = dataGetter.getBookList();
+        view.findViewById(R.id.tempBtn).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                navController.navigate(R.id.action_bookList_to_userBookList);
+            }
+        });
     }
 
     @Override

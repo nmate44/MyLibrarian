@@ -12,6 +12,9 @@
         <action
             android:id="@+id/action_bookList_to_bookDetails3"
             app:destination="@id/bookDetails3" />
+        <action
+            android:id="@+id/action_bookList_to_userBookList"
+            app:destination="@id/userBookList" />
     </fragment>
     <fragment
         android:id="@+id/bookDetails3"
@@ -20,6 +23,15 @@
         tools:layout="@layout/fragment_book_details" >
         <action
             android:id="@+id/action_bookDetails3_to_bookList"
+            app:destination="@id/bookList" />
+    </fragment>
+    <fragment
+        android:id="@+id/userBookList"
+        android:name="com.example.mylibrarian.UserBookList"
+        android:label="fragment_user_book_list"
+        tools:layout="@layout/fragment_user_book_list" >
+        <action
+            android:id="@+id/action_userBookList_to_bookList"
             app:destination="@id/bookList" />
     </fragment>
 </navigation>

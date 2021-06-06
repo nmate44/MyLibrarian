@@ -3,28 +3,42 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="#004CAF50">
+    android:layout_height="wrap_content">
 
     <TextView
-        android:id="@+id/detailsTitle"
+        android:id="@+id/userBookTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="5dp"
-        android:layout_marginLeft="5dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
         android:layout_marginTop="25dp"
         android:layout_marginEnd="5dp"
         android:layout_marginRight="5dp"
         android:fontFamily="sans-serif-black"
         android:text="TextView"
         android:textSize="24sp"
-        app:layout_constraintEnd_toStartOf="@+id/bookImg"
-        app:layout_constraintHorizontal_bias="0.478"
+        app:layout_constraintEnd_toStartOf="@+id/userBookImg"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/bookAuthor"
+        android:id="@+id/userBookAuthor"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="4dp"
+        android:layout_marginLeft="4dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="5dp"
+        android:layout_marginRight="5dp"
+        android:fontFamily="sans-serif-medium"
+        android:text="TextView"
+        app:layout_constraintEnd_toStartOf="@+id/userBookImg"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/userBookTitle" />
+
+    <ProgressBar
+        android:id="@+id/userBookProgressBar"
+        style="?android:attr/progressBarStyleHorizontal"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
@@ -32,15 +46,14 @@
         android:layout_marginTop="8dp"
         android:layout_marginEnd="5dp"
         android:layout_marginRight="5dp"
-        android:fontFamily="sans-serif-medium"
-        android:text="TextView"
-        app:layout_constraintEnd_toStartOf="@+id/bookImg"
-        app:layout_constraintHorizontal_bias="0.493"
+        android:indeterminate="false"
+        android:max="100"
+        app:layout_constraintEnd_toStartOf="@+id/userBookImg"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/detailsTitle" />
+        app:layout_constraintTop_toBottomOf="@+id/userBookAuthor" />
 
     <TextView
-        android:id="@+id/bookAdvancement"
+        android:id="@+id/userBookAdvancement"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="5dp"
@@ -52,12 +65,13 @@
         android:gravity="center"
         android:text="TextView"
         android:textSize="12sp"
-        app:layout_constraintEnd_toStartOf="@+id/bookImg"
+        app:layout_constraintEnd_toStartOf="@+id/userBookImg"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bookProgressBar" />
+        app:layout_constraintTop_toBottomOf="@+id/userBookProgressBar" />
 
     <ImageView
-        android:id="@+id/bookImg"
+        android:id="@+id/userBookImg"
         android:layout_width="100dp"
         android:layout_height="150dp"
         android:layout_marginTop="15dp"
@@ -70,7 +84,7 @@
         tools:srcCompat="@tools:sample/avatars" />
 
     <Button
-        android:id="@+id/bookDetailsBtn"
+        android:id="@+id/userBookDetailsBtn"
         android:layout_width="103dp"
         android:layout_height="46dp"
         android:layout_marginStart="5dp"
@@ -78,36 +92,20 @@
         android:layout_marginTop="8dp"
         android:text="More"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bookAdvancement" />
+        app:layout_constraintTop_toBottomOf="@+id/userBookAdvancement" />
 
-    <ProgressBar
-        android:id="@+id/bookProgressBar"
-        style="?android:attr/progressBarStyleHorizontal"
+    <Button
+        android:id="@+id/userBookDeleteBtn"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="46dp"
         android:layout_marginStart="5dp"
         android:layout_marginLeft="5dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="5dp"
         android:layout_marginRight="5dp"
-        android:indeterminate="false"
-        android:max="100"
-        app:layout_constraintEnd_toStartOf="@+id/bookImg"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/bookAuthor" />
+        android:text="Remove"
+        app:layout_constraintEnd_toStartOf="@+id/userBookImg"
+        app:layout_constraintStart_toEndOf="@+id/userBookDetailsBtn"
+        app:layout_constraintTop_toBottomOf="@+id/userBookAdvancement" />
 
-    <Button
-        android:id="@+id/bookAddBtn"
-        android:layout_width="0dp"
-        android:layout_height="46dp"
-        android:layout_marginStart="10dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="10dp"
-        android:layout_marginRight="10dp"
-        android:text="Add To Own"
-        app:layout_constraintEnd_toStartOf="@+id/bookImg"
-        app:layout_constraintStart_toEndOf="@+id/bookDetailsBtn"
-        app:layout_constraintTop_toBottomOf="@+id/bookAdvancement" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -24,12 +24,17 @@ import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
     DBHelper myDb;
-    int pos;
+    private static MainActivity instance;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        instance = this;
         myDb = new DBHelper(this);
+    }
+
+    public static MainActivity getInstance() {
+        return instance;
     }
 }
