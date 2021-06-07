@@ -48,9 +48,8 @@ public class UserBookAdapter extends RecyclerView.Adapter<UserBookAdapter.ViewHo
         holder.bookDetailsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                navController.navigate(R.id.action_bookList_to_bookDetails3);
-                BookList.getInstance().setCurrentPos(position);
-                System.out.println("*Button " + position + " clicked*");
+                navController.navigate(R.id.action_userBookList_to_userBookDetails);
+                UserBookList.getInstance().setCurrentPos(position);
             }
         });
         holder.bookDeleteBtn.setOnClickListener(new View.OnClickListener() {
@@ -87,4 +86,5 @@ public class UserBookAdapter extends RecyclerView.Adapter<UserBookAdapter.ViewHo
             this.bookDeleteBtn = itemView.findViewById(R.id.userBookDeleteBtn);
         }
     }
+
 }

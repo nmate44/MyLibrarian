@@ -36,5 +36,17 @@
         <action
             android:id="@+id/action_userBookList_self"
             app:destination="@id/userBookList" />
+        <action
+            android:id="@+id/action_userBookList_to_userBookDetails"
+            app:destination="@id/userBookDetails" />
+    </fragment>
+    <fragment
+        android:id="@+id/userBookDetails"
+        android:name="com.example.mylibrarian.UserBookDetails"
+        android:label="fragment_user_book_details"
+        tools:layout="@layout/fragment_user_book_details" >
+        <action
+            android:id="@+id/action_userBookDetails_to_userBookList"
+            app:destination="@id/userBookList" />
     </fragment>
 </navigation>

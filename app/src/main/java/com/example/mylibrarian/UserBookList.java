@@ -23,6 +23,7 @@ public class UserBookList extends Fragment {
     private DBHelper database;
     private UserBookAdapter adapter;
     public static UserBookList instance;
+    private int currentPos;
 
     public UserBookList() {
     }
@@ -72,6 +73,18 @@ public class UserBookList extends Fragment {
 
     public void removeFromUserBookList(int position) {
         this.database.removeUserBook(this.bookList.get(position).getId());
+    }
+
+    public int getCurrentPos() {
+        return this.currentPos;
+    }
+
+    public void setCurrentPos(int pos) {
+        this.currentPos = pos;
+    }
+
+    public List<BookModel> getUserBookList() {
+        return this.userBookList;
     }
 
     public static UserBookList getInstance() {
