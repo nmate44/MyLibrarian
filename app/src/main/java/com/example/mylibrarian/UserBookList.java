@@ -72,7 +72,8 @@ public class UserBookList extends Fragment {
     }
 
     public void removeFromUserBookList(int position) {
-        this.database.removeUserBook(this.bookList.get(position).getId());
+        System.out.println("Removing: " + this.userBookList.get(position).getId());
+        this.database.removeUserBook(this.userBookList.get(position).getId());
     }
 
     public int getCurrentPos() {
