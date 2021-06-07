@@ -60,11 +60,14 @@ public class UserBookList extends Fragment {
     }
 
     public void fillUserBooksList() {
+        this.userBookList.clear();
         List<BookModel> queryResult = this.database.getAllUserBooks();
         for(int i = 0; i < queryResult.size(); i++) {
             for(int j = 0; j < this.bookList.size(); j++) {
                 if(this.bookList.get(j).getId().equals(queryResult.get(i).getId())) {
-                    this.userBookList.add(this.bookList.get(j));
+                    BookModel foundBook = this.bookList.get(j);
+                    foundBook.setPagesRead(queryResult.get(i).getPagesRead());
+                    this.userBookList.add(foundBook);
                     break;
                 }
             }
@@ -90,6 +93,11 @@ public class UserBookList extends Fragment {
 
     public static UserBookList getInstance() {
         return instance;
+    }
+
+    public void updateUserBook(BookModel book) {
+        this.database.updateUserBook(book.getId(), book.getPagesRead());
+        //fillUserBooksList();
     }
 
 }

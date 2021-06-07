@@ -8,7 +8,7 @@ public class BookModel {
     private String genre;
     private String description;
     private Integer pages;
-    private Integer pagesRead;
+    private Integer pagesRead = 0;
     private String isbn;
     private String img;
 
@@ -106,5 +106,10 @@ public class BookModel {
 
     public void setImg(String img) {
         this.img = img;
+    }
+
+    public Integer calculateCompletion() {
+        float result = ((float)this.pagesRead/(float)this.pages)*100;
+        return Math.round(result);
     }
 }

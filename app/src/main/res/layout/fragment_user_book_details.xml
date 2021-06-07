@@ -42,31 +42,18 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.498"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/editTextNumber" />
-
-                <ProgressBar
-                    android:id="@+id/progressBar"
-                    style="?android:attr/progressBarStyle"
-                    android:layout_width="100dp"
-                    android:layout_height="100dp"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="10dp"
-                    android:max="100"
-                    android:progress="50"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/detailsStaticCompletion" />
+                    app:layout_constraintTop_toBottomOf="@+id/detailsUserCompletion" />
 
                 <EditText
-                    android:id="@+id/editTextNumber"
+                    android:id="@+id/detailsUserCompletion"
                     android:layout_width="120dp"
                     android:layout_height="40dp"
-                    android:layout_marginStart="25dp"
-                    android:layout_marginLeft="25dp"
+                    android:layout_marginStart="50dp"
+                    android:layout_marginLeft="50dp"
                     android:layout_marginTop="35dp"
                     android:ems="10"
                     android:inputType="number"
-                    app:layout_constraintStart_toEndOf="@+id/progressBar"
+                    app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/detailsStaticCompletion" />
 
                 <TextView
@@ -182,12 +169,12 @@
                     app:layout_constraintTop_toBottomOf="@+id/detailsUserBookIsbn" />
 
                 <TextView
-                    android:id="@+id/detailsUserBookPagesRead"
+                    android:id="@+id/detailsUserBookPages2"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="45dp"
-                    android:layout_marginEnd="15dp"
-                    android:layout_marginRight="15dp"
+                    android:layout_marginEnd="100dp"
+                    android:layout_marginRight="100dp"
                     android:fontFamily="sans-serif-light"
                     android:text="TextView"
                     android:textSize="18sp"
@@ -293,8 +280,8 @@
                     android:fontFamily="sans-serif-black"
                     android:text="of"
                     android:textSize="18sp"
-                    app:layout_constraintEnd_toStartOf="@+id/detailsUserBookPagesRead"
-                    app:layout_constraintStart_toEndOf="@+id/editTextNumber"
+                    app:layout_constraintEnd_toStartOf="@+id/detailsUserBookPages2"
+                    app:layout_constraintStart_toEndOf="@+id/detailsUserCompletion"
                     app:layout_constraintTop_toBottomOf="@+id/detailsStaticCompletion" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>

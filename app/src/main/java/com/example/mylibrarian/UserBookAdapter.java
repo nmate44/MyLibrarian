@@ -42,8 +42,9 @@ public class UserBookAdapter extends RecyclerView.Adapter<UserBookAdapter.ViewHo
     public void onBindViewHolder(@NonNull UserBookAdapter.ViewHolder holder, int position) {
         holder.title.setText(userBookList.get(position).getTitle());
         holder.author.setText(userBookList.get(position).getAuthor());
-        holder.advancement.setText(userBookList.get(position).getPages().toString());
-        holder.progressBar.setProgress(50);
+        holder.advancement.setText(
+                String.valueOf(userBookList.get(position).calculateCompletion()) + " %");
+        holder.progressBar.setProgress(userBookList.get(position).calculateCompletion());
         Glide.with(userContext).load(userBookList.get(position).getImg()).into(holder.img);
         holder.bookDetailsBtn.setOnClickListener(new View.OnClickListener() {
             @Override
