@@ -87,16 +87,18 @@ public class DataGetter extends AsyncTask<String, String, String> {
                 book.setIsbn(jsonListElement.getString("isbn"));
                 book.setImg(jsonListElement.getString("img"));
                 this.bookList.add(book);
+                System.out.println("Adding book from API to List: " + book);
             }
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        FillBooksView(context, recyclerView);
+        fillBooksView(this.context);
     }
 
-    private void FillBooksView(Context context, RecyclerView booksView) {
-        booksView.setLayoutManager(new LinearLayoutManager(context));
-        booksView.setAdapter(adapter);
+    public void fillBooksView(Context context) {
+        System.out.println("Filling booksView w/: " + this.bookList);
+        this.recyclerView.setLayoutManager(new LinearLayoutManager(context));
+        this.recyclerView.setAdapter(adapter);
     }
 
     public void setRecyclerView(RecyclerView recyclerView) {
@@ -104,6 +106,7 @@ public class DataGetter extends AsyncTask<String, String, String> {
     }
 
     public List<BookModel> getBookList() {
+        System.out.println("Getting book list: " + this.bookList);
         return this.bookList;
     }
 }

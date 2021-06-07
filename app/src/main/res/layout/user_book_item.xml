@@ -91,6 +91,7 @@
         android:layout_marginLeft="5dp"
         android:layout_marginTop="8dp"
         android:text="More"
+        app:backgroundTint="#337536"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/userBookAdvancement" />
 
@@ -104,6 +105,7 @@
         android:layout_marginEnd="5dp"
         android:layout_marginRight="5dp"
         android:text="Remove"
+        app:backgroundTint="#337536"
         app:layout_constraintEnd_toStartOf="@+id/userBookImg"
         app:layout_constraintStart_toEndOf="@+id/userBookDetailsBtn"
         app:layout_constraintTop_toBottomOf="@+id/userBookAdvancement" />
